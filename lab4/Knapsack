@@ -1,0 +1,140 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter capacity:");
+        int capacity = sc.nextInt();
+		System.out.println("Enter number of items:");
+		int n = sc.nextInt();
+		int weight[]= new int[n];
+		int profit[] = new int[n];
+		double ratio[]= new double[n];
+		System.out.println("Enter weight of items:");
+		for(int i =0;i<n;i++)
+		{
+		    weight[i]= sc.nextInt();
+		}
+		System.out.println("Enter profit of items:");
+		for(int i =0;i<n;i++)
+		{
+		    profit[i]= sc.nextInt();
+		}
+		for(int i =0;i<n;i++)
+		{
+		    ratio[i]=profit[i]/weight[i];
+		}   
+		for (int i = 0; i < n - 1; i++) {
+        int max = i;
+        for (int j = i + 1; j < n; j++) {
+        if (ratio[j] > ratio[max]) {
+            max = j;
+        }
+      }
+       double t = ratio[max];
+       ratio[max] = ratio[i];
+       ratio[i] = t;
+       int w = weight[max];
+    weight[max] = weight[i];
+    weight[i] = w;
+    int p = profit[max];
+    profit[max] = profit[i];
+    profit[i] = p;
+   }
+    double totalProfit = 0;
+    for (int i = 0; i < n; i++) {
+    if (capacity >= weight[i]) {
+        capacity = capacity - weight[i];
+        totalProfit = totalProfit + profit[i];
+    } else {
+        totalProfit = totalProfit + ratio[i] * capacity;
+        break;
+    }
+   }
+    System.out.println("totalProfit");
+    System.out.println(totalProfit);
+	}
+}
+
+
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+
